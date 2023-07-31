@@ -169,26 +169,31 @@
             const numero = parseInt(document.getElementById("numeroInput2").value);
             const resultado = document.getElementById("resultado2");
 
-            if (isNaN(numero) || numero <= 1) {
+            if (isNaN(numero)) {
+                resultado.textContent = "Por favor, digite um número inteiro.";
+                return;
+            }
+
+            if (numero <= 1) {
                 resultado.textContent = "Por favor, digite um número inteiro positivo maior que 1.";
-            } else {
-                let ehPrimo = true;
+                return;
+            }
 
-                for (let i = 2; i <= Math.sqrt(numero); i++) {
-                    if (numero % i === 0) {
-                        ehPrimo = false;
-                        break;
-                    }
-                }
+            let ehPrimo = true;
 
-                if (ehPrimo) {
-                    resultado.textContent = "É um número primo.";
-                } else {
-                    resultado.textContent = "Não é um número primo.";
+            for (let i = 2; i <= Math.sqrt(numero); i++) {
+                if (numero % i === 0) {
+                    ehPrimo = false;
+                    break;
                 }
             }
-        }
 
+            if (ehPrimo) {
+                resultado.textContent = "É um número primo.";
+            } else {
+                resultado.textContent = "Não é um número primo.";
+            }
+        }
 
         // Atividade 3 - Números Primos até N
         function listarPrimosAteN() {
