@@ -1,0 +1,58 @@
+/* Personalizações para a página */
+body {
+    font-family     : Arial, sans-serif;
+    padding         : 20px;
+    background-color: #f8f9fa;
+    /* Fundo cinza claro */
+    color           : #343a40;
+    /* Texto cinza escuro quase preto */
+}
+
+h1,
+h2 {
+    color: #2f2f2f;
+    /* Azul do Bootstrap */
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    margin-right: 10px;
+}
+
+button {
+    margin-top      : 10px;
+    border-radius   : 5px;
+    /* Botões arredondados */
+    background-color: #048e36;
+    /* Verde do WhatsApp */
+    color           : #fff;
+    /* Texto branco nos botões */
+    padding         : 5px 24px;
+    border          : none;
+}
+
+p {
+    margin-top: 10px;
+    font-size : 18px;
+}
+
+/* Container com plano de fundo para cada atividade */
+.atividade-container {
+    padding         : 20px;
+    border-radius   : 8px;
+    background-color: #fff;
+    /* Fundo branco */
+    margin-bottom   : 20px;
+    box-shadow      : 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .col {
+        flex-basis: 100%;
+        max-width : 100%;
+    }
+}

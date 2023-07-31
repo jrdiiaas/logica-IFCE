@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividades de Lógica</title>
+    <!-- Inclusão do Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <!-- Inclusão do arquivo style.css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Atividades de Lógica</h1>
+
+        <div class="row">
+            <!-- Atividade 1 - Par ou Ímpar -->
+            <div class="col">
+                <div class="atividade-container">
+                    <h2>Atividade 1 - Par ou Ímpar</h2>
+                    <label>Digite um número:</label>
+                    <input type="number" id="numeroInput1">
+                    <button onclick="verificarParOuImpar()">Verificar</button>
+                    <p id="resultado1"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Atividade 2 - Número Primo -->
+            <div class="col">
+                <div class="atividade-container">
+                    <h2>Atividade 2 - Número Primo</h2>
+                    <label for="numeroInput2">Digite um número inteiro positivo:</label>
+                    <input type="number" id="numeroInput2">
+                    <button onclick="verificarPrimo()">Verificar</button>
+                    <p id="resultado2"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Atividade 3 - Números Primos até N -->
+            <div class="col">
+                <div class="atividade-container">
+                    <h2>Atividade 3 - Números Primos até N</h2>
+                    <label>Digite um número inteiro positivo (N):</label>
+                    <input type="number" id="numeroInput3">
+                    <button onclick="listarPrimosAteN()">Listar</button>
+                    <p id="resultado3"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Atividade 4 - Fatorial de um Número -->
+            <div class="col">
+                <div class="atividade-container">
+                    <h2>Atividade 4 - Fatorial de um Número</h2>
+                    <label>Digite um número inteiro:</label>
+                    <input type="number" id="numeroInput4">
+                    <button onclick="calcularFatorial()">Calcular</button>
+                    <p id="resultado4"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Atividade 5 - Média Aritmética -->
+            <div class="col">
+                <div class="atividade-container">
+                    <h2>Atividade 5 - Média Aritmética</h2>
+                    <label>Digite uma lista de números separados por vírgula:</label>
+                    <input type="text" id="listaInput" placeholder="Exemplo: 1, 2, 3, 4">
+                    <button onclick="calcularMediaAritmetica()">Calcular Média</button>
+                    <p id="resultado5"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Atividade 6 - Maior e Menor Número -->
+            <div class="col">
+                <div class="atividade-container">
+                    <h2>Atividade 6 - Maior e Menor Número</h2>
+                    <label>Digite uma lista de números separados por vírgula:</label>
+                    <input type="text" id="listaInput2" placeholder="Exemplo: 1, 2, 3, 4">
+                    <button onclick="encontrarMaiorEMenor()">Encontrar Maior e Menor</button>
+                    <p id="resultado6"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Atividade 7 - Primo de Fibonacci -->
+            <div class="col">
+                <div class="atividade-container">
+                    <h2>Atividade 7 - Primo de Fibonacci</h2>
+                    <label>Digite um número inteiro:</label>
+                    <input type="number" id="numeroInput7">
+                    <button onclick="verificarPrimoDeFibonacci()">Verificar</button>
+                    <p id="resultado7"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Atividade 8 - Contar Palavras com "a" -->
+            <div class="col">
+                <div class="atividade-container">
+                    <h2>Atividade 8 - Contar Palavras com "a"</h2>
+                    <label>Digite uma lista de palavras separadas por vírgula:</label>
+                    <input type="text" id="palavrasInput" placeholder="Exemplo: casa, carro, árvore">
+                    <button onclick="contarPalavrasComA()">Contar Palavras</button>
+                    <p id="resultado8"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Atividade 9 - Palíndromo -->
+            <div class="col">
+                <div class="atividade-container">
+                    <h2>Atividade 9 - Palíndromo</h2>
+                    <label>Digite uma palavra:</label>
+                    <input type="text" id="palavraInput">
+                    <button onclick="verificarPalindromo()">Verificar</button>
+                    <p id="resultado9"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Atividade 10 - Palíndromos da Lista -->
+            <div class="col">
+                <div class="atividade-container">
+                    <h2>Atividade 10 - Palíndromos da Lista</h2>
+                    <label>Digite uma lista de palavras separadas por vírgula:</label>
+                    <input type="text" id="palindromosInput" placeholder="Exemplo: arara, radar, casa">
+                    <button onclick="filtrarPalindromos()">Filtrar Palíndromos</button>
+                    <p id="resultado10"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Atividade 1 - Par ou Ímpar
+        function verificarParOuImpar() {
+            const numero = parseInt(document.getElementById("numeroInput1").value);
+            const resultado = document.getElementById("resultado1");
+
+            if (isNaN(numero)) {
+                resultado.textContent = "Por favor, digite um número válido.";
+            } else {
+                if (numero % 2 === 0) {
+                    resultado.textContent = "Par";
+                } else {
+                    resultado.textContent = "Ímpar";
+                }
+            }
+        }
+
+        // Atividade 2 - Número Primo
+        function verificarPrimo() {
+            const numero = parseInt(document.getElementById("numeroInput2").value);
+            const resultado = document.getElementById("resultado2");
+
+            if (isNaN(numero) || numero <= 1) {
+                resultado.textContent = "Por favor, digite um número inteiro positivo maior que 1.";
+            } else {
+                let ehPrimo = true;
+
+                for (let i = 2; i <= Math.sqrt(numero); i++) {
+                    if (numero % i === 0) {
+                        ehPrimo = false;
+                        break;
+                    }
+                }
+
+                if (ehPrimo) {
+                    resultado.textContent = "É um número primo.";
+                } else {
+                    resultado.textContent = "Não é um número primo.";
+                }
+            }
+        }
+
+
+        // Atividade 3 - Números Primos até N
+        function listarPrimosAteN() {
+            const N = parseInt(document.getElementById("numeroInput3").value);
+            const resultado = document.getElementById("resultado3");
+
+            if (isNaN(N) || N < 1) {
+                resultado.textContent = "Por favor, digite um número inteiro positivo maior que 0.";
+            } else {
+                let numerosPrimos = [];
+
+                for (let candidato = 2; numerosPrimos.length < N; candidato++) {
+                    let ehPrimo = true;
+
+                    for (let i = 2; i <= Math.sqrt(candidato); i++) {
+                        if (candidato % i === 0) {
+                            ehPrimo = false;
+                            break;
+                        }
+                    }
+
+                    if (ehPrimo) {
+                        numerosPrimos.push(candidato);
+                    }
+                }
+
+                resultado.textContent = numerosPrimos.join(", ");
+            }
+        }
+
+        // Atividade 4 - Fatorial de um Número
+        function calcularFatorial() {
+            const numero = parseInt(document.getElementById("numeroInput4").value);
+            const resultado = document.getElementById("resultado4");
+
+            if (isNaN(numero) || numero < 0) {
+                resultado.textContent = "Por favor, digite um número inteiro positivo ou zero.";
+            } else {
+                let fatorial = 1;
+
+                for (let i = 2; i <= numero; i++) {
+                    fatorial *= i;
+                }
+
+                resultado.textContent = `O fatorial de ${numero} é ${fatorial}.`;
+            }
+        }
+
+        // Atividade 5 - Média Aritmética
+        function calcularMediaAritmetica() {
+            const lista = document.getElementById("listaInput").value;
+            const numeros = lista.split(",").map(item => parseFloat(item.trim()));
+            const resultado = document.getElementById("resultado5");
+
+            if (numeros.some(isNaN)) {
+                resultado.textContent = "Por favor, digite uma lista válida de números separados por vírgula.";
+            } else {
+                const media = numeros.reduce((acc, num) => acc + num, 0) / numeros.length;
+                resultado.textContent = `A média aritmética dos números é ${media.toFixed(2)}.`;
+            }
+        }
+
+        // Atividade 6 - Maior e Menor Número
+        function encontrarMaiorEMenor() {
+            const lista = document.getElementById("listaInput2").value;
+            const numeros = lista.split(",").map(item => parseFloat(item.trim()));
+            const resultado = document.getElementById("resultado6");
+
+            if (numeros.some(isNaN)) {
+                resultado.textContent = "Por favor, digite uma lista válida de números separados por vírgula.";
+            } else {
+                const maior = Math.max(...numeros);
+                const menor = Math.min(...numeros);
+                resultado.textContent = `Maior número: ${maior}. Menor número: ${menor}.`;
+            }
+        }
+
+        // Atividade 7 - Primo de Fibonacci
+        function verificarPrimoDeFibonacci() {
+            const numero = parseInt(document.getElementById("numeroInput7").value);
+            const resultado = document.getElementById("resultado7");
+
+            if (isNaN(numero) || numero < 0) {
+                resultado.textContent = "Por favor, digite um número inteiro positivo ou zero.";
+            } else {
+                const ehPrimo = verificarPrimo(numero);
+                const ehFibonacci = verificarFibonacci(numero);
+
+                if (ehPrimo && ehFibonacci) {
+                    resultado.textContent = "É um número primo de Fibonacci.";
+                } else {
+                    resultado.textContent = "Não é um número primo de Fibonacci.";
+                }
+            }
+        }
+
+        // Função auxiliar para verificar se um número é primo
+        function verificarPrimo(numero) {
+            if (numero <= 1) {
+                return false;
+            }
+
+            for (let i = 2; i <= Math.sqrt(numero); i++) {
+                if (numero % i === 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        // Função auxiliar para verificar se um número é um número de Fibonacci
+        function verificarFibonacci(numero) {
+            let fibPrev = 0;
+            let fibAtual = 1;
+
+            while (fibAtual < numero) {
+                const temp = fibAtual;
+                fibAtual = fibPrev + fibAtual;
+                fibPrev = temp;
+            }
+
+            return fibAtual === numero;
+        }
+
+        // Atividade 8 - Contar Palavras com "a"
+        function contarPalavrasComA() {
+            const palavras = document.getElementById("palavrasInput").value;
+            const listaPalavras = palavras.split(",").map(item => item.trim());
+            const resultado = document.getElementById("resultado8");
+
+            const quantidadePalavrasComA = listaPalavras.filter(palavra => palavra.toLowerCase().charAt(0) === 'a').length;
+
+            resultado.textContent = `Quantidade de palavras que começam com "a": ${quantidadePalavrasComA}`;
+        }
+
+        // Atividade 9 - Palíndromo
+        function verificarPalindromo() {
+            const palavra = document.getElementById("palavraInput").value;
+            const resultado = document.getElementById("resultado9");
+
+            const palavraInvertida = palavra.split("").reverse().join("");
+            const ehPalindromo = palavra.toLowerCase() === palavraInvertida.toLowerCase();
+
+            resultado.textContent = ehPalindromo ? "É um palíndromo." : "Não é um palíndromo.";
+        }
+
+        // Atividade 10 - Palíndromos da Lista
+        function filtrarPalindromos() {
+            const palindromos = document.getElementById("palindromosInput").value;
+            const listaPalavras = palindromos.split(",").map(item => item.trim());
+            const resultado = document.getElementById("resultado10");
+
+            const palindromosEncontrados = listaPalavras.filter(palavra => {
+                const palavraInvertida = palavra.split("").reverse().join("");
+                return palavra.toLowerCase() === palavraInvertida.toLowerCase();
+            });
+
+            resultado.textContent = `Palavras palíndromos: ${palindromosEncontrados.join(", ")}`;
+        }
+
+    </script>
+</body>
+
+</html>
